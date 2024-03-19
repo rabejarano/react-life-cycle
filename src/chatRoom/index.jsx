@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 function ChatRoom(props) {
-  const { id = "nara" } = { ...props };
+  const { id = "nara", hidden = false } = { ...props };
 
   useEffect(() => {
     console.log("init Creacion", id);
@@ -13,7 +13,11 @@ function ChatRoom(props) {
     console.log("update", id);
   }, [id]);
 
-  return <h1>{"🧑🏻‍🦲 📞  ClienId " + id}</h1>;
+  return (
+    <h1 style={{ display: hidden ? "none" : "block" }}>
+      {"🧑🏻‍🦲 📞  ClienId " + id}
+    </h1>
+  );
 }
 
 export default ChatRoom;
